@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="wrap phero">
+  <div class="grid">
+    <div>
+      <span class="pill pill-blue">{{ p.category }}</span>
+      <h1>{{ p.headline }}</h1>
+      <p class="lede">{{ p.lede }}</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px"><a class="btn btn-primary" href="{{ signup(p.slug) }}">Start 14-day free trial</a><a class="btn btn-ghost" href="{{ base }}quote/?product={{ p.slug }}#quote-form">Get a tailored quote</a></div>
+      <p class="muted" style="margin-top:14px;font-size:14px">No credit card. Every feature. After the trial, a plan priced around your team — ask for a quote any time.</p>
+    </div>
+    <div class="vidframe"><video controls playsinline preload="metadata" poster="{{ base }}media/{{ p.slug }}-poster.jpg"><source src="{{ base }}media/{{ p.slug }}-tour.mp4" type="video/mp4"></video></div>
+  </div>
+</section>
+
+<section class="wrap section tight">
+  <div class="section-head reveal"><span class="eyebrow">What it does</span><h2>{{ p.features_title }}</h2></div>
+  <div class="features">
+    {% for f in p.features %}<div class="feature reveal"><h4>{{ f[0] }}</h4><p>{{ f[1] }}</p></div>{% endfor %}
+  </div>
+</section>
+
+<section class="wrap section tight">
+  <div class="section-head reveal"><span class="eyebrow">Who it's for</span><h2>{{ p.who_title }}</h2><p>{{ p.who }}</p></div>
+  <div class="specs reveal">
+    {% for k, v in p.specs %}<div><span>{{ k }}</span><span>{{ v }}</span></div>{% endfor %}
+  </div>
+</section>
+
+<section class="wrap section tight">
+  <div class="cta-band reveal"><div><h2>Try {{ p.name }} free for 14 days.</h2><p>Every feature, no card, cancel any time.</p></div><a class="btn btn-onnavy" href="{{ signup(p.slug) }}">Start free trial</a></div>
+</section>
+{% endblock %}

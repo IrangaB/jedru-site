@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }} · Jedru</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="https://jedru.com{{ path }}">
+<meta property="og:title" content="{{ title }} · Jedru"><meta property="og:description" content="{{ description }}"><meta property="og:type" content="website"><meta property="og:url" content="https://jedru.com{{ path }}"><meta property="og:image" content="https://jedru.com/img/og.png">
+<meta name="theme-color" content="#0b1f4d">
+<link rel="icon" href="{{ base }}img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="{{ base }}css/site.css?v={{ v }}">
+{% block head %}{% endblock %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Jedru","url":"https://jedru.com/","logo":"https://jedru.com/img/favicon.svg","description":"Precision software for manufacturers: Vortex (wash-plant chemical management), iMonitor (workforce productivity insight) and Craft Studio (knitwear engineering).","email":"support@jedru.com","areaServed":"LK","contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"support@jedru.com","availableLanguage":["en","si"]}]}</script>
+</head>
+<body>
+<header class="topnav">
+  <div class="wrap">
+    <a class="logo" href="{{ base }}"><span class="logo-mark">J</span>Jedru</a>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav>
+      <a href="{{ base }}vortex/" {% if nav=='vortex' %}aria-current="page"{% endif %}>Vortex</a>
+      <a href="{{ base }}imonitor/" {% if nav=='imonitor' %}aria-current="page"{% endif %}>iMonitor</a>
+      <a href="{{ base }}craft-studio/" {% if nav=='craft' %}aria-current="page"{% endif %}>Craft Studio</a>
+      <a href="{{ base }}security/" {% if nav=='security' %}aria-current="page"{% endif %}>Security</a>
+      <a href="{{ base }}company/" {% if nav=='company' %}aria-current="page"{% endif %}>Company</a>
+    </nav>
+    <div class="right">{% if portal_live %}<a class="btn btn-ghost" href="{{ portal }}/accounts/login/">Sign in</a>{% endif %}<a class="btn btn-ghost btn-quote" href="{{ base }}quote/">Get a quote</a><a class="btn btn-primary" href="{{ signup() }}">Start free trial</a></div>
+  </div>
+</header>
+{% block body %}{% endblock %}
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="logo" href="{{ base }}"><span class="logo-mark">J</span>Jedru</a><p style="margin-top:12px;max-width:34ch">Precision software for the people who make things. Built in Sri Lanka.</p></div>
+      <div><h5>Products</h5><ul><li><a href="{{ base }}vortex/">Vortex</a></li><li><a href="{{ base }}imonitor/">iMonitor</a></li><li><a href="{{ base }}craft-studio/">Craft Studio</a></li><li><a href="{{ base }}quote/">Get a quote</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="{{ base }}company/">About</a></li><li><a href="{{ base }}company/#contact">Contact</a></li><li><a href="{{ base }}security/">Security</a></li>{% if portal_live %}<li><a href="{{ portal }}/accounts/login/">Customer portal</a></li>{% endif %}</ul></div>
+      <div><h5>Legal</h5><ul><li><a href="{{ base }}privacy/">Privacy policy</a></li><li><a href="{{ base }}terms/">Terms of service</a></li><li><a href="{{ base }}terms/#eula">EULA</a></li><li><a href="{{ base }}terms/#refunds">Refunds</a></li></ul></div>
+    </div>
+    <div class="bottom"><span>© 2026 Jedru Apps (Pvt) Ltd. All rights reserved.</span><span>support@jedru.com</span></div>
+  </div>
+</footer>
+<div class="modal" id="video-modal" role="dialog" aria-label="Product video"><div class="box"><video controls playsinline preload="none"></video><button class="close" aria-label="Close">✕</button></div></div>
+<script src="{{ base }}js/site.js?v={{ v }}" defer></script>
+</body>
+</html>

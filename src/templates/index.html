@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="hero"><div class="orb"></div>
+  <div class="wrap grid">
+    <div>
+      <span class="pill pill-glass">14-day free trial · Every product · No credit card</span>
+      <h1>Precision software for the people who <em>make things.</em></h1>
+      <p class="lede">Cloud platforms that make wash-plant chemistry exact, workforce productivity visible and knitwear engineering effortless. One account, every product, free for 14 days.</p>
+      <div class="cta"><a class="btn btn-onnavy btn-lg" href="{{ signup() }}">Start free trial</a><a class="btn btn-outline-onnavy btn-lg" href="#" data-video="{{ base }}media/vortex-tour.mp4">Watch the tour</a></div>
+      <div class="trust"><span>Works in any browser and on mobile</span><span>Priced around your team</span><span>Cancel any time</span></div>
+    </div>
+    <div class="hero-media">
+      <video autoplay muted loop playsinline poster="{{ base }}media/vortex-poster.jpg" aria-label="Jedru products in use"><source src="{{ base }}media/hero-loop.mp4" type="video/mp4"></video>
+      <button class="playbtn" data-video="{{ base }}media/vortex-tour.mp4" aria-label="Play the product tour"><span><i></i>Watch the 2-minute Vortex tour</span></button>
+    </div>
+  </div>
+  <div class="shelf"><div class="wrap"><span>Built for</span><b>Garment wash plants</b><b>Knitwear factories</b><b>Office &amp; IT teams</b><b>Operations leaders</b></div></div>
+</section>
+
+<section class="wrap section" id="products">
+  <div class="section-head reveal"><span class="eyebrow">Products</span><h2>Three platforms. One sign-in.</h2><p>Each product is web and mobile friendly, starts with a 14-day full-feature trial and is priced around your team. Add a product from your portal whenever you need it.</p></div>
+  <div class="products">
+    {% for p in products %}
+    <article class="product reveal" style="--pgrad:{{ p.grad }}">
+      <div class="picon" style="background:{{ p.grad }}">{{ p.abbr }}</div>
+      <h3>{{ p.name }}</h3>
+      <p class="desc">{{ p.tagline }}</p>
+      <ul>{% for f in p.bullets %}<li>{{ f }}</li>{% endfor %}</ul>
+      <a class="vid" href="#" data-video="{{ base }}media/{{ p.slug }}-tour.mp4" aria-label="Play {{ p.name }} tour"><video muted loop playsinline preload="none" poster="{{ base }}media/{{ p.slug }}-poster.jpg"><source src="{{ base }}media/{{ p.slug }}-tour.mp4" type="video/mp4"></video></a>
+      <div class="foot"><a class="btn btn-primary" href="{{ signup(p.slug) }}">Try {{ p.name }} free</a><a href="/{{ p.url }}/">See features →</a></div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section tight">
+  <div class="section-head reveal"><span class="eyebrow">How it works</span><h2>From sign-up to a paid seat in four steps</h2></div>
+  <div class="how">
+    <div class="step reveal"><span class="n">1</span><h4>Create your Jedru account</h4><p>Email and password, or sign in with Microsoft or Google. Verify your email and you're in.</p></div>
+    <div class="step reveal"><span class="n">2</span><h4>Start any trial</h4><p>Pick a product in your portal. 14 days, every feature, no card required.</p></div>
+    <div class="step reveal"><span class="n">3</span><h4>Invite your team</h4><p>Add colleagues to your organisation and assign roles. They sign in with the same account everywhere.</p></div>
+    <div class="step reveal"><span class="n">4</span><h4>Subscribe when ready</h4><p>Ask for a tailored quote, then pay monthly or annually by card or bank transfer. Access continues without interruption.</p></div>
+  </div>
+</section>
+
+<section class="wrap section tight">
+  <div class="section-head reveal"><span class="eyebrow">Security</span><h2>Built so one licence means one user</h2></div>
+  <div class="security">
+    <div class="sec reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><div><h4>One active session per account</h4><p>Signing in on a second device signs the first one out, with a prompt so the real owner always wins.</p></div></div>
+    <div class="sec reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><div><h4>Trusted devices</h4><p>Each device is fingerprinted and must be confirmed by email code the first time. You can see and revoke devices from the portal.</p></div></div>
+    <div class="sec reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h4>Signed entitlements</h4><p>Licences are cryptographically signed by Jedru and verified by every product on every request. They cannot be edited or forged.</p></div></div>
+    <div class="sec reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></div><div><h4>Code stays on our servers</h4><p>Products run server-side; your browser only receives rendered screens. Installed agents are signed and bound to the machine they were activated on.</p></div></div>
+  </div>
+  <p style="margin-top:18px"><a href="{{ base }}security/">Read the full security overview →</a></p>
+</section>
+
+<section class="wrap section tight">
+  <div class="cta-band reveal"><div><h2>Try every Jedru product free for 14 days.</h2><p>No card. No feature limits. Keep your data if you subscribe.</p></div><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-onnavy btn-lg" href="{{ signup() }}">Create your account</a><a class="btn btn-outline-onnavy btn-lg" href="{{ base }}quote/">Get a tailored quote</a></div></div>
+</section>
+{% endblock %}

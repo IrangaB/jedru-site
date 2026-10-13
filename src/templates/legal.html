@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="wrap section">
+  <div class="section-head"><span class="eyebrow">Legal</span><h2>{{ title }}</h2><p>Last updated {{ updated }}. Governing law: Sri Lanka. <span class="notice" style="display:inline-block;margin-top:10px">Draft prepared for review by your lawyer before publishing.</span></p></div>
+  <div class="prose">
+  {% if kind == 'privacy' %}
+    <h2>Who we are</h2><p>Jedru Apps (Pvt) Ltd ("Jedru", "we"), Sri Lanka, operates jedru.com and the Jedru customer portal and products (Vortex, iMonitor, Craft Studio). Contact: privacy@jedru.com.</p>
+    <h2>What we collect</h2><ul><li>Account data: name, work email, organisation, role, password hash, sign-in method (email, Microsoft or Google).</li><li>Billing data: organisation address, tax ID, payment reference and last four card digits from PayHere. Full card numbers are never received by us.</li><li>Usage and device data: sign-in times, IP address, browser and device fingerprint, product features used, for security and support.</li><li>Product data you enter (recipes, batches, usage records, garment specifications). This belongs to your organisation.</li><li>iMonitor specifically records application usage and working time on PCs where your organisation installs the agent; the organisation is the data controller and is responsible for informing its staff.</li></ul>
+    <h2>Why we use it</h2><p>To provide and secure the service, to bill you, to support you, to prevent licence abuse and to improve the products. We do not sell personal data and we do not use product data for advertising.</p>
+    <h2>Retention</h2><p>Account and product data is kept while the organisation has an active trial or subscription and for 30 days after closure, then deleted. Invoices are kept for 7 years as required by law. Security logs are kept for 12 months.</p>
+    <h2>Sharing</h2><p>Payment processing by PayHere (Sri Lanka); hosting and backups with our cloud providers; email delivery providers. Each is bound by contract to process data only on our instructions.</p>
+    <h2>Your rights</h2><p>You can access, correct, export or delete your personal data by emailing privacy@jedru.com. Organisation administrators manage their members' accounts. We respond within 30 days.</p>
+  {% else %}
+    <h2>Service</h2><p>Jedru provides access to its products on a subscription basis. A 14-day free trial is available per organisation per product. After the trial, continued use requires a paid subscription.</p>
+    <h2>Accounts and acceptable use</h2><p>One account per person; sharing accounts is not permitted and may result in suspension. You are responsible for your organisation's users and for complying with local law, including informing staff where monitoring software is deployed.</p>
+    <h2 id="eula">End User Licence Agreement</h2><p>Jedru grants a non-exclusive, non-transferable licence to use the products for your organisation's internal business for the subscription term. You may not copy, modify, reverse engineer, decompile, resell or sublicense the software, circumvent licence checks or device binding, or remove proprietary notices. All intellectual property remains with Jedru.</p>
+    <h2>Payments</h2><p>Prices are shown on jedru.com and at checkout, excluding applicable taxes. Payments are processed by PayHere. Card subscriptions renew automatically until cancelled; bank-transfer subscriptions renew on receipt of payment.</p>
+    <h2 id="refunds">Refunds and cancellation</h2><p>Monthly plans can be cancelled at any time and remain active until the end of the paid period. Annual plans may be cancelled for a pro-rata refund within 30 days of purchase; thereafter they remain active until the end of the term. Trials incur no charge.</p>
+    <h2>Availability and support</h2><p>We aim for 99.5% monthly availability excluding announced maintenance. Support is provided by email during Sri Lanka business hours. Enterprise agreements may define a different service level.</p>
+    <h2>Warranty and liability</h2><p>The software is provided with reasonable skill and care but otherwise "as is". Jedru's total liability for any claim is limited to the subscription fees paid in the 12 months before the claim. Jedru is not liable for indirect losses, including lost production or wasted materials.</p>
+    <h2>Termination</h2><p>Either party may terminate on 30 days' notice. Jedru may suspend immediately for non-payment, licence abuse or security risk. On termination, data is available for export for 30 days.</p>
+    <h2>Law</h2><p>These terms are governed by the laws of Sri Lanka; the courts of Colombo have exclusive jurisdiction.</p>
+  {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="wrap section">
+  <div class="section-head"><span class="eyebrow">Pricing</span><h2>Pick a product, pick a plan. Every plan starts with 14 days free.</h2><p>Prices in US dollars per user per month (iMonitor: per monitored PC). Pay monthly, or annually and save. Card, bank transfer or mobile wallet through PayHere. Most teams choose Mid-market: it removes the limits of Entry and adds the approvals, alerts and reports managers ask for first.</p></div>
+
+  <div class="pricing-ctl">
+    <div class="seg" id="ptabs" role="tablist">
+      {% for p in products %}<button role="tab" data-product="{{ p.slug }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ p.name }}</button>{% endfor %}
+    </div>
+    <div class="seg" id="per"><button data-per="m" aria-pressed="false">Monthly</button><button data-per="y" aria-pressed="true">Annual · save 10%</button></div>
+  </div>
+
+  {% for p in products %}
+  <div class="tierset" id="tiers-{{ p.slug }}" {% if not loop.first %}hidden{% endif %}>
+    <p class="muted" style="margin-bottom:16px;font-size:14.5px">{{ p.name }} · {{ p.tagline }} Billed {{ p.unit_label }}.</p>
+    <div class="plans">
+      {% for t in tiers[p.slug] %}
+      <div class="plan {% if t.recommended %}featured{% endif %}" id="{{ p.slug }}-{{ t.name|lower|replace('-', '') }}">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span class="pill pill-blue">{{ t.name }}</span>{% if t.recommended %}<span class="pill pill-ok">Recommended</span>{% endif %}</div>
+        <div class="price" data-monthly="{{ t.monthly }}" data-annual="{{ t.annual }}" data-save="{{ t.save }}" data-pct="{{ t.pct }}" data-unit="{{ p.unit_label }}">
+          <span class="amt">${{ t.monthly }}</span> <small>{{ p.unit_label }} / month</small>
+          <div class="sub muted" style="font-size:13.5px;font-weight:400;letter-spacing:0;font-family:var(--body);margin-top:4px"></div>
+        </div>
+        <p class="muted" style="font-size:14.5px">{{ t.blurb }}</p>
+        <ul>{% for f in t.features %}<li>{{ f }}</li>{% endfor %}</ul>
+        <a class="btn {% if t.recommended %}btn-primary{% else %}btn-ghost{% endif %}" href="{{ signup(p.slug) }}{% if portal_live %}&tier={{ t.name|lower|replace('-', '') }}{% endif %}">Start 14-day trial</a>
+        {% if t.recommended %}<p class="muted" style="font-size:12.5px;text-align:center">Chosen by most {{ p.name }} customers</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% if p.slug == 'vortex' %}<p class="fine">Why Mid-market: Entry stops at one site and five machines; Mid-market lifts those limits and adds the approvals audit trail and compliance alerts that buyers and auditors ask to see. Premium is for groups that need SSO, self-hosting and a contractual SLA.</p>
+    {% elif p.slug == 'imonitor' %}<p class="fine">Why Mid-market: Entry keeps 30 days of history; Mid-market keeps 12 months and emails managers their shift and department reports automatically. Premium adds self-hosting, SSO and an SLA for multi-site groups.</p>
+    {% else %}<p class="fine">Why Mid-market: Entry suits one technician; Mid-market gives the sample room a shared, versioned style library with PDF charts and your own grading rule sets. Premium adds self-hosting, SSO and custom fashioning rule packs built with you.</p>{% endif %}
+  </div>
+  {% endfor %}
+
+  <p class="fine">All plans: 14-day free trial with every feature of the chosen plan, no card required. Prices exclude taxes where applicable. Bundle discount of 10% when two or more products are active on one organisation. Change plan or seats any time; differences are pro-rated. Enterprise agreements and volume pricing: <a href="{{ base }}company/#contact">contact sales</a>.</p>
+</section>
+
+<section class="wrap section tight">
+  <div class="section-head"><span class="eyebrow">Questions</span><h2>Billing, plainly</h2></div>
+  <div class="faq">
+    <details><summary>Can I start on Entry and move up later?</summary><p>Yes. Upgrade from the portal at any time; you pay only the pro-rated difference for the rest of the current period, and nothing is re-installed or migrated.</p></details>
+    <details><summary>What happens when my trial ends?</summary><p>Your data and settings are kept for 30 days. Subscribe at any point in that window and nothing changes for your team; otherwise the workspace is archived and then deleted.</p></details>
+    <details><summary>Can I pay by bank transfer?</summary><p>Yes. Choose bank transfer at checkout; PayHere confirms the deposit within one business day and the subscription activates automatically. Card plans renew automatically; bank-transfer plans send a renewal reminder 14 days before expiry.</p></details>
+    <details><summary>How are seats counted?</summary><p>Vortex and Craft Studio are per named user. iMonitor is per monitored PC; dashboard users are unlimited. Add or remove seats any time; changes are pro-rated on the next invoice.</p></details>
+    <details><summary>Do you issue invoices?</summary><p>Every payment produces a tax invoice in USD that you can download from the portal.</p></details>
+    <details><summary>Refunds?</summary><p>Monthly plans can be cancelled any time and stop at the end of the paid month. Annual plans are refundable pro-rata within the first 30 days. See the <a href="{{ base }}terms/#refunds">refund policy</a>.</p></details>
+  </div>
+</section>
+{% endblock %}

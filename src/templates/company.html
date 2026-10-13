@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="wrap section">
+  <div class="section-head"><span class="eyebrow">Company</span><h2>From real challenges to industry-wide solutions</h2><p>Jedru is a Sri Lanka-based software company that develops solutions inspired by real-world production requirements. From chemical consumption tracking in wash plants, to software asset management for IT teams, to rapid fashioning chart generation in knit operations, our products address challenges we encountered firsthand.</p><p style="margin-top:12px">By combining deep manufacturing knowledge with modern technology, we deliver practical, purpose-built solutions that help organisations improve efficiency, visibility and decision-making across their operations.</p></div>
+  <div class="features">
+    <div class="feature"><h4>Practical first</h4><p>Every feature exists because someone on a floor asked for it. We measure success by hours saved per shift, not by feature counts.</p></div>
+    <div class="feature"><h4>Pricing that fits</h4><p>Every quote is designed around your size and budget — the right solution at the lowest price we can make it — with a real free trial while you decide. <a href="{{ base }}quote/">Get a tailored quote</a>.</p></div>
+    <div class="feature"><h4>Support that answers</h4><p>Email and WhatsApp support in English and Sinhala during Sri Lanka business hours, with priority support on annual plans.</p></div>
+  </div>
+</section>
+<section class="wrap section tight" id="contact">
+  <div class="section-head"><span class="eyebrow">Contact</span><h2>Talk to us</h2><p>Sales questions, demos for your team, enterprise or self-hosted deployments. We reply within one business day.</p></div>
+  <form class="form" id="contact-form" novalidate>
+    <div class="two"><label class="field" for="c-name">Name<input id="c-name" name="name" required minlength="2" maxlength="80" pattern="[A-Za-zÀ-ɏ඀-෿஀-௿ .'\-]+" title="Letters and spaces only" autocomplete="name" data-msg="Please enter your name (letters only)."></label><label class="field" for="c-company">Company<input id="c-company" name="company" maxlength="120" autocomplete="organization"></label></div>
+    <div class="two"><label class="field" for="c-email">Work email<input id="c-email" name="email" type="email" required maxlength="120" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[A-Za-z]{2,}" data-msg="Please enter a valid work email, e.g. name@company.com."></label><label class="field" for="c-product">Product<select id="c-product" name="product"><option>Vortex</option><option>iMonitor</option><option>Craft Studio</option><option>Enterprise / self-hosted</option><option>Other</option></select></label></div>
+    <label class="field" for="c-msg">Message<textarea id="c-msg" name="message" rows="5" required minlength="10" maxlength="2000" data-msg="Tell us a little more (at least 10 characters)."></textarea></label>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+    <div><button class="btn btn-primary" type="submit">Send</button></div>
+    <p id="contact-done" hidden style="color:var(--ok);font-weight:600">Thanks — your message is on its way to support@jedru.com. We reply within one business day.</p>
+    <p id="contact-error" hidden style="color:#b42318;font-weight:600"></p>
+    <p class="muted" style="font-size:14px">Or email <a href="mailto:support@jedru.com">support@jedru.com</a></p>
+  </form>
+</section>
+{% endblock %}

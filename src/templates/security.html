@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="wrap section">
+  <div class="section-head"><span class="eyebrow">Security</span><h2>How Jedru protects your account, your data and our software</h2><p>Written for IT managers who need to approve a vendor. If you need a filled security questionnaire, email security@jedru.com.</p></div>
+  <div class="security">
+    <div class="sec"><div class="ic">1</div><div><h4>Single sign-on across products</h4><p>Your Jedru account is an OpenID Connect identity. Vortex, iMonitor and Craft Studio accept tokens only from it, so a cancelled subscription or removed user loses access everywhere within minutes.</p></div></div>
+    <div class="sec"><div class="ic">2</div><div><h4>One active session per user</h4><p>A second sign-in ends the first after a prompt. Organisations can also require an authenticator-app code and restrict sign-in to their office IP range.</p></div></div>
+    <div class="sec"><div class="ic">3</div><div><h4>Trusted devices</h4><p>New browsers and PCs are fingerprinted and confirmed by a one-time email code. Administrators can see and revoke every device from the portal.</p></div></div>
+    <div class="sec"><div class="ic">4</div><div><h4>Signed entitlements</h4><p>Each seat is an Ed25519-signed entitlement issued by the portal and verified by the product on every request. Keys cannot be edited, extended or forged; the private key never leaves our servers.</p></div></div>
+    <div class="sec"><div class="ic">5</div><div><h4>Server-side code</h4><p>Web products render on our servers; browsers receive screens, not application code. The iMonitor agent is code-signed, obfuscated and bound to the hardware fingerprint of the PC it was activated on.</p></div></div>
+    <div class="sec"><div class="ic">6</div><div><h4>Data</h4><p>Encrypted in transit (TLS 1.2+) and at rest. Daily backups retained 30 days. Each organisation's data is logically isolated; exports are available on request and deleted 30 days after an account closes.</p></div></div>
+    <div class="sec"><div class="ic">7</div><div><h4>Payments</h4><p>Card details never touch Jedru systems. Payments are processed by PayHere (PCI DSS Level 1, 3-D Secure). We store only the last four digits and the payment reference.</p></div></div>
+    <div class="sec"><div class="ic">8</div><div><h4>Self-hosted option</h4><p>Enterprise customers can run products inside their own network with an offline, machine-bound licence file. Contact sales for details.</p></div></div>
+  </div>
+</section>
+{% endblock %}

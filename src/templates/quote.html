@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="hero quote-hero"><div class="orb"></div>
+  <div class="wrap grid">
+    <div>
+      <span class="pill pill-blue">Pricing tailored to you</span>
+      <h1>Every factory is different. Your price should be <em>too.</em></h1>
+      <p class="lede">We don't publish a one-size-fits-all price list, because no two floors run the same way. Tell us about yours — the people, the machines, the problem you want solved first — and a Jedru solutions specialist will design a plan around your budget: the right solution at the lowest price we can make it.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px"><a class="btn btn-primary" href="#quote-form">Get my tailored quote</a><a class="btn btn-outline-onnavy" href="{{ signup() }}">Start 14-day free trial</a></div>
+      <p class="muted-on-navy" style="margin-top:14px;font-size:14px">Reply within one business day · No obligation · The trial is free either way</p>
+    </div>
+    <div class="quote-art" aria-hidden="true">
+      <svg viewBox="20 30 520 400" xmlns="http://www.w3.org/2000/svg" role="img">
+        <defs>
+          <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f6fff"/><stop offset="1" stop-color="#6d4dff"/></linearGradient>
+          <linearGradient id="gB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9f0ff"/></linearGradient>
+          <filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#020a1f" flood-opacity=".35"/></filter>
+        </defs>
+        <circle cx="300" cy="240" r="180" fill="url(#gA)" opacity=".16"/>
+        <!-- desk + laptop -->
+        <rect x="100" y="330" width="400" height="14" rx="7" fill="#17347a"/>
+        <rect x="130" y="344" width="14" height="70" rx="4" fill="#12295f"/><rect x="456" y="344" width="14" height="70" rx="4" fill="#12295f"/>
+        <g transform="translate(300 296)"><rect x="-82" y="-60" width="164" height="100" rx="8" fill="#0b1e4d" stroke="#2b4f9e"/><rect x="-74" y="-52" width="148" height="82" rx="4" fill="#0f2f7a"/>
+          <g class="bars"><rect x="-58" y="6" width="12" height="18" fill="#5aa0ff"/><rect x="-38" y="-6" width="12" height="30" fill="#5aa0ff"/><rect x="-18" y="-16" width="12" height="40" fill="#8fc0ff"/><rect x="2" y="-28" width="12" height="52" fill="#8fc0ff"/><rect x="22" y="-38" width="12" height="62" fill="#fff"/></g>
+          <rect x="-98" y="40" width="196" height="8" rx="4" fill="#17347a"/></g>
+        <!-- specialist (behind the laptop) -->
+        <g transform="translate(300 236)"><g class="person">
+          <path d="M-66 60c0-42 26-68 66-68s66 26 66 68z" fill="#1f6fff"/>
+          <path d="M-18 -6h36l-4 28h-28z" fill="#ffffff" opacity=".92"/>
+          <rect x="-16" y="-36" width="32" height="32" rx="10" fill="#f3c9a8"/>
+          <circle cx="0" cy="-50" r="31" fill="#f3c9a8"/>
+          <path d="M-33 -54c0-25 14-40 33-40s33 15 33 40c0 6-2 10-4 12 0-19-10-29-29-29s-29 10-29 29c-2-2-4-6-4-12z" fill="#15264f"/>
+          <path d="M-33 -50c0 20 5 32 5 32h-9c-6-8-6-32-6-32z M33 -50c0 20-5 32-5 32h9c6-8 6-32 6-32z" fill="#15264f"/>
+          <path d="M-31 -56c0-22 13-35 31-35s31 13 31 35" fill="none" stroke="#e9f0ff" stroke-width="5" stroke-linecap="round"/><rect x="-39" y="-60" width="10" height="20" rx="4" fill="#e9f0ff"/><rect x="29" y="-60" width="10" height="20" rx="4" fill="#e9f0ff"/><path d="M34 -40c0 16-10 25-24 27" fill="none" stroke="#e9f0ff" stroke-width="3"/><circle cx="9" cy="-12" r="4" fill="#5aa0ff"/>
+          <circle cx="-10" cy="-52" r="3" fill="#15264f"/><circle cx="10" cy="-52" r="3" fill="#15264f"/>
+          <path d="M-8 -40q8 8 16 0" fill="none" stroke="#c0785a" stroke-width="2.5" stroke-linecap="round"/>
+        </g></g>
+        <!-- redraw laptop lid in front of the person -->
+        <g transform="translate(300 296)"><rect x="-82" y="-60" width="164" height="100" rx="8" fill="#0b1e4d" stroke="#2b4f9e"/><rect x="-74" y="-52" width="148" height="82" rx="4" fill="#0f2f7a"/>
+          <g class="bars"><rect x="-58" y="6" width="12" height="18" fill="#5aa0ff"/><rect x="-38" y="-6" width="12" height="30" fill="#5aa0ff"/><rect x="-18" y="-16" width="12" height="40" fill="#8fc0ff"/><rect x="2" y="-28" width="12" height="52" fill="#8fc0ff"/><rect x="22" y="-38" width="12" height="62" fill="#fff"/></g>
+          <rect x="-98" y="40" width="196" height="8" rx="4" fill="#17347a"/></g>
+        <!-- ringing phone, top right -->
+        <g transform="translate(486 96)"><g class="rings"><circle r="20" fill="none" stroke="#5aa0ff" stroke-width="2"/><circle r="20" fill="none" stroke="#5aa0ff" stroke-width="2"/><circle r="20" fill="none" stroke="#5aa0ff" stroke-width="2"/></g>
+          <g class="phone"><circle r="27" fill="#0f2a66" stroke="#5aa0ff" stroke-width="2"/><path d="M-9 -8c0-2 1-3 3-3l4 0 2 6-3 2c2 4 5 7 9 9l2-3 6 2 0 4c0 2-1 3-3 3C1 12-9 2-9 -8z" fill="#fff"/></g></g>
+        <!-- floating cards, clear of the person -->
+        <g transform="translate(30 96)"><g class="card c1" filter="url(#sh)"><rect width="176" height="94" rx="12" fill="url(#gB)"/><text x="16" y="28" font-family="Inter,system-ui" font-size="11" font-weight="700" fill="#64748b">YOUR PLAN</text><text x="16" y="57" font-family="Inter,system-ui" font-size="22" font-weight="700" fill="#0b1a33">Built for you</text><g class="ticks"><circle cx="24" cy="78" r="5" fill="#16a34a"/><rect x="36" y="75" width="60" height="6" rx="3" fill="#cfd8ea"/><circle cx="112" cy="78" r="5" fill="#16a34a"/><rect x="124" y="75" width="34" height="6" rx="3" fill="#cfd8ea"/></g></g></g>
+        <g transform="translate(372 150)"><g class="card c2" filter="url(#sh)"><rect width="160" height="74" rx="12" fill="url(#gB)"/><text x="16" y="26" font-family="Inter,system-ui" font-size="11" font-weight="700" fill="#64748b">YOUR BUDGET</text><rect x="16" y="38" width="128" height="10" rx="5" fill="#dfe7f5"/><rect class="budget" x="16" y="38" width="128" height="10" rx="5" fill="url(#gA)"/><text x="16" y="64" font-family="Inter,system-ui" font-size="11" font-weight="600" fill="#16a34a">fits ✓</text></g></g>
+        <g transform="translate(36 230)"><g class="card c3" filter="url(#sh)"><rect width="176" height="56" rx="28" fill="#fff"/><circle cx="28" cy="28" r="14" fill="url(#gA)"/><path d="M22 28l4 4 8-8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><text x="52" y="25" font-family="Inter,system-ui" font-size="11.5" font-weight="700" fill="#0b1a33">We'll call you</text><text x="52" y="41" font-family="Inter,system-ui" font-size="10.5" fill="#64748b">within 1 business day</text></g></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="features">
+    <div class="feature"><h4>Built around your budget</h4><p>Tell us what you can invest and we design backwards from it — the modules you need now, the ones that can wait, and the lowest price for the whole picture.</p></div>
+    <div class="feature"><h4>Only what you'll actually use</h4><p>Five machines or fifty, one technician or a whole sample room: you pay for the scale you run at, not for a tier someone else designed.</p></div>
+    <div class="feature"><h4>Free 14-day trial either way</h4><p>While we prepare your quote, your team can already be using every feature. No card, no commitment, and your data carries over when you subscribe.</p></div>
+  </div>
+</section>
+
+<section class="wrap section tight">
+  <div class="section-head"><span class="eyebrow">How it works</span><h2>Three steps to a price that fits</h2></div>
+  <div class="how" style="grid-template-columns:repeat(3,1fr)">
+    <div class="step"><span class="n">1</span><h4>Tell us about your floor</h4><p>Two minutes in the form below: products you're interested in, team size, and what you want to fix first.</p></div>
+    <div class="step"><span class="n">2</span><h4>We design your plan</h4><p>A Jedru solutions specialist calls or emails within one business day, asks the right questions, and builds a proposal around your budget.</p></div>
+    <div class="step"><span class="n">3</span><h4>You decide</h4><p>Clear written quote, monthly or annual, in US dollars. Accept it, adjust it, or keep trialling — there is never any pressure.</p></div>
+  </div>
+</section>
+
+<section class="wrap section tight" id="quote-form">
+  <div class="section-head"><span class="eyebrow">Get your tailored quote</span><h2>Let's find your lowest price for the right solution</h2><p>Everything you enter goes straight to our team at support@jedru.com. We reply within one business day.</p></div>
+  <form class="form" id="contact-form" data-kind="Quote request" novalidate>
+    <fieldset class="field" style="border:0;padding:0;margin:0"><legend style="font-weight:500;margin-bottom:6px">I'd like to</legend>
+      <div class="checks seg-radio"><label><input type="radio" name="intent" value="Quote request" checked> Get a tailored quote</label><label><input type="radio" name="intent" value="Free trial request"> Start a free 14-day trial</label></div></fieldset>
+    <div class="two"><label class="field" for="q-name">Name<input id="q-name" name="name" required minlength="2" maxlength="80" pattern="[A-Za-zÀ-ɏ඀-෿஀-௿ .'\-]+" title="Letters and spaces only" autocomplete="name" data-msg="Please enter your name (letters only)."></label><label class="field" for="q-company">Company<input id="q-company" name="company" required minlength="2" maxlength="120" autocomplete="organization" data-msg="Please enter your company name."></label></div>
+    <div class="two"><label class="field" for="q-email">Work email<input id="q-email" name="email" type="email" required maxlength="120" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[A-Za-z]{2,}" data-msg="Please enter a valid work email, e.g. name@company.com."></label><label class="field" for="q-phone">Phone / WhatsApp<input id="q-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="\+?[0-9 ()\-]{7,20}" minlength="7" maxlength="20" placeholder="+94 77 123 4567" title="Digits only, 7 to 15 digits, optional + and spaces" data-msg="Phone: digits only, e.g. +94 77 123 4567."></label></div>
+    <fieldset class="field" style="border:0;padding:0;margin:0"><legend style="font-weight:500;margin-bottom:6px">Products you're interested in <span class="muted" style="font-weight:400">(choose at least one)</span></legend>
+      <div class="checks"><label><input type="checkbox" name="products" value="Vortex"> Vortex — wash-plant chemicals &amp; recipes</label><label><input type="checkbox" name="products" value="iMonitor"> iMonitor — PC productivity insight</label><label><input type="checkbox" name="products" value="Craft Studio"> Craft Studio — knitwear fashioning charts</label><label><input type="checkbox" name="products" value="Not sure yet"> Not sure yet — advise me</label></div></fieldset>
+    <div class="two"><label class="field" for="q-size">Team size<select id="q-size" name="size"><option>1–5 users / PCs</option><option>6–20 users / PCs</option><option>21–50 users / PCs</option><option>51–200 users / PCs</option><option>200+ users / PCs</option></select></label><label class="field" for="q-budget">Monthly budget (optional)<select id="q-budget" name="budget"><option value="">Prefer not to say</option><option>Under $100 / month</option><option>$100 – $500 / month</option><option>$500 – $2,000 / month</option><option>Over $2,000 / month</option></select></label></div>
+    <label class="field" for="q-msg">What would you like to fix first?<textarea id="q-msg" name="message" rows="4" required minlength="10" maxlength="2000" data-msg="Tell us a little more (at least 10 characters)." placeholder="e.g. We lose track of chemical stock between shifts and want dosing verified by scale."></textarea></label>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+    <div><button class="btn btn-primary" type="submit">Get my tailored quote</button></div>
+    <p id="contact-done" hidden style="color:var(--ok);font-weight:600">Thank you — your request is with our team. A Jedru solutions specialist will be in touch within one business day with your quote or your trial access.</p>
+    <p id="contact-error" hidden style="color:#b42318;font-weight:600"></p>
+    <p class="muted" style="font-size:14px">Prefer to talk? Email <a href="mailto:support@jedru.com">support@jedru.com</a> and we'll call you back.</p>
+  </form>
+</section>
+{% endblock %}

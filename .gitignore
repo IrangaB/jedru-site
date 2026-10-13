@@ -1,0 +1,6 @@
+dist/
+preview/
+node_modules/
+*.png
+__pycache__/
+.wrangler/
